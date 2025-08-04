@@ -1,0 +1,339 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.home-body{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.home-container{
+  width: 70%;
+  height: 450px;
+  box-shadow: 6px 6px 15px 3px  rgba(0,0,0,0.5);
+  overflow: hidden;
+  background: rgba(255, 255, 255,0.1);
+  backdrop-filter: blur(16px);
+
+}
+
+.left-container{
+  padding: 12px 0 10px 15px ;
+}
+.left-top{
+  display: flex;
+  gap: 10px;
+
+}
+.left-top img{
+  height: 30px;
+}
+.search{
+  width: 90%;
+  margin: 5px 0;
+  background: rgb(202, 198, 198);
+  display: flex;
+}
+.search input{
+  width: 100%;
+  padding: 7px;
+  background: transparent;
+  border:none;
+  outline: none;
+  flex: 1;
+}
+.user-list{
+  padding: 15px 0px;
+}
+.user-box{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom:8px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.user-box img{
+  height: 25px;
+  border-radius: 50%;
+}
+.chat-container{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  padding-bottom: 3px;
+}
+.chat-top{
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  background: rgb(207, 201, 201);
+
+}
+.chat-top div{
+  display: flex;
+ align-items: center;
+  gap: 7px;
+
+}
+.chat-top div img {
+  height: 40px;
+  border-radius: 50%;
+}
+.chat-middle{
+  position: absolute;
+  overflow-y: auto;
+  height: calc(100% - 80px);
+  width: 100%;
+  scrollbar-width: none;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+ 
+}
+/*------------------ChatGpt------------------------------*/
+.message {
+  width: fit-content;
+  max-width: 60%;
+  padding: 10px 15px;
+  margin: 5px 0;
+  
+  font-size: 14px;
+  word-wrap: break-word;
+}
+
+/* Received message (left aligned) */
+.received {
+  background-color: #b0b0bb;
+  color: black;
+  align-self: flex-start;
+  border-radius: 0px 10px 10px 10px;
+}
+
+/* Sent message (right aligned) */
+.sent {
+  border-radius: 10px 10px 0px 10px;
+  background-color: #0b93f6;
+  color: white;
+  align-self: flex-end;
+}
+
+.message-box-l{
+  width: 45%;
+  margin: 10px 5px 10px 10px;
+  padding: 5PX;
+  background: rgb(221, 215, 215);
+
+ border-radius: 0px 10px 10px 10px;
+}
+.message-box-r{
+  margin: 10px 10px 10px 5px;
+  padding: 5PX;
+  margin-left: auto;
+  background: rgb(44, 91, 219);
+  border-radius: 10px 10px 0px 10px;
+  color: white}
+.chat-bottom{
+  position: absolute;
+  bottom: 3px;
+  width: 100%;
+  display: flex;
+  gap: 7px;
+  padding: 3px;
+  z-index: 5;
+  background: white;
+}
+.chat-bottom input{
+  flex: 1;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: rgb(216, 213, 213);
+  padding: 8px 5px;
+  transition: border .4s ease-in-out;
+}
+.chat-bottom input:focus{
+  border: 2px solid rgb(16, 92, 235);
+}
+.chat-bottom button{
+  padding: 6px 14px ;
+  color: white;
+  background: rgb(21, 83, 216);
+  border: none;
+  border-radius: 15%;
+}
+.right-container{
+  height: 100%;
+  width: 100%;
+  padding: 30px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  
+}
+.right-container img{
+  height: 100px;
+}
+#avatar{
+  border-radius: 50%;
+  transition: transform .5s ease;
+}
+#avatar:hover{
+   transform: scale(1.1);
+}
+.collection{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(50px,1fr));
+  gap: 5px;
+  width: 100%;
+  max-height: 220px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  
+}
+.collection img{
+  height: 60px;
+}
+.right-container button{
+  position: absolute;
+  bottom: 5px;
+  padding: 6px 14px;
+  color: white;
+  background: rgb(240, 36, 36);
+  border: none;
+  border-radius: 10%;
+}
+
+
+/*-------------------------------LOGIN -------------------------------------------------*/
+
+.background{
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  z-index: -100;
+}
+.login-body{
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+.login-logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-logo img{
+  width: 200px;
+}
+.login-form{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-form form{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  background:rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(30px);
+  color: white;
+  box-shadow: 1px 1px 16px  rgb(131, 182, 248);
+  border:1px solid white
+}
+.login-form form input{
+  padding: 3px 7px;
+  border: none;
+  outline: none;
+}
+.login-form form button{
+  padding: 5px 7px;
+  border: none;
+  outline: none;
+ background: linear-gradient(to right,rgb(133, 192, 240),rgb(65, 146, 240));
+ color: white;
+  
+}
+.login-form span{
+  cursor: pointer;
+  
+}
+.login-span{
+  color: rgb(223, 228, 241);
+}
+textarea{
+  border: none;
+  outline: none;
+  padding: 7px;
+}
+
+/*----------------------------Profile------------------------------------------*/
+
+.profile-body{
+  width: 100vw;
+  height: 100vh;
+  background: rgb(80, 76, 76);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profile-container{
+  background: rgb(173, 166, 166);
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  padding: 18px;
+  border-radius: 10px;
+}
+.profile-data{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  
+}
+.profile-data input{
+  padding: 7px 15px;
+  border: none;
+  outline: none;
+}
+.avatar-profile{
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+}
+.avatar-profile img{
+  height: 40px;
+  border-radius: 50%;
+}
+.profile-logo{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+.profile-logo img{
+  height: 150px;
+  
+}
+.save-btn{
+  padding: 8px 16px ;
+  color: white;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  background: rgb(23, 80, 235);
+}
