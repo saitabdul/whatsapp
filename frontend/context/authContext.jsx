@@ -7,7 +7,7 @@ import { io } from 'socket.io-client'
 import { useNavigate } from 'react-router-dom'
 
 
-const backendUrl = axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL
+const backendUrl = axios.defaults.baseURL ="https://whatsapp1-h0do.onrender.com/api/v1"
 export const AuthContext = createContext()
 
 export const AuthProvider = ({ children }) => {
@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
     async function checkAuth() {
         try {
 
-            const { data } = await axios.get('http://localhost:8000/api/v1/check-auth')
+            const { data } = await axios.get(backendUrl,'/check-auth')
             if (data.success) {
                 console.log("Auth", data.user)
                 setAuthUser(data.user)
@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }) => {
         if (!userData || socket?.connected) return;
         try {
 
-            const newSocket = io('http://localhost:8000', {
+            const newSocket = io('https://whatsapp1-h0do.onrender.com', {
                 level: ["nantha"],
                 query: {
                     userId: userData._id
@@ -65,7 +65,7 @@ export const AuthProvider = ({ children }) => {
     const login = async (currState, credentials) => {
         try {
 
-            const { data } = await axios.post(`http://localhost:8000/api/v1/${currState}`, credentials)
+            const { data } = await axios.post(`backendUrl/${currState}`, credentials)
             if (data.success) {
                 setAuthUser(data.user)
                 setToken(data.token)
@@ -86,7 +86,7 @@ export const AuthProvider = ({ children }) => {
     const logout = async () => {
         try {
 
-            const { data } = await axios.get('http://localhost:8000/api/v1/logout')
+            const { data } = await axios.get(backendUrl,'/logout')
             if (data.success) {
                 setAuthUser(null)
                 setToken(null)
@@ -139,4 +139,5 @@ export const AuthProvider = ({ children }) => {
             {children}
         </AuthContext.Provider>
     )
+
 }
