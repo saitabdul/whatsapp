@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const http = require('http');
+const path = require('path');
 const { Server } = require('socket.io');
 require('dotenv/config');
 const databaseConnection = require('./database/databaseConnection');
@@ -17,7 +18,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: 'https://whatsapp1-h0do.onrender.com'
+        origin: '*',
     },
 });
 
@@ -45,7 +46,7 @@ io.on('connection', (socket) => {
 // Middlewares
 app.use(express.json({ limit: '20mb' }));
 app.use(cors({
-    origin: 'https://whatsapp1-h0do.onrender.com',
+    origin: 'http://localhost:5173',
     credentials: true,
 }));
 app.use(cookieParser());
@@ -60,8 +61,15 @@ app.use(errorMiddleware);
 // Exports
 module.exports=onlineUsers
 // Start server
+console.log("pather",path.join(__dirname))
+
+app.use(express.static(path.join(__dirname,'../frontend/dist')))
+app.get(/^\/(?!api).*/,(req,res)=>{
+    res.sendFile(path.join(__dirname,'../frontend/dist/index.html'))
+})
+
+
 const port = process.env.PORT || 7000;
 server.listen(port, () => {
     console.log("Server running on port " + port);
 });
-
