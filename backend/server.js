@@ -18,7 +18,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: '*',
+        origin: 'https://whatsappmern.onrender.com',
     },
 });
 
@@ -46,7 +46,7 @@ io.on('connection', (socket) => {
 // Middlewares
 app.use(express.json({ limit: '20mb' }));
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: 'https://whatsappmern.onrender.com',
     credentials: true,
 }));
 app.use(cookieParser());
@@ -73,3 +73,4 @@ const port = process.env.PORT || 7000;
 server.listen(port, () => {
     console.log("Server running on port " + port);
 });
+
