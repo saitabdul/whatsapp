@@ -10,11 +10,7 @@ export default function LeftSideBar() {
     useEffect(() => {
         getUsers()
     }, [])
-    useEffect(()=>{
-        if(selectedUser){
-          getMessages()
-        }
-      },[selectedUser,messages])
+    
     function selectUserHandler(user){
         console.log('ok1')
         setSelectedUser(user)
@@ -57,4 +53,5 @@ export default function LeftSideBar() {
             }
         </>
     )
+
 }
