@@ -8,10 +8,10 @@ export default function LoginPage() {
 
     const [currState, setCurrState] = useState('Sign Up')
     const [isDataFilled, setIsDataFilled] = useState(false)
-    const [username, setUserName] = useState('Nantha')
-    const [email, setEmail] = useState('nantha@gmail.com')
-    const [password, setPassword] = useState('1')
-    const [bio, setBio] = useState('ok')
+    const [username, setUserName] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [bio, setBio] = useState('Hi')
     const [profilePic, setProfilePic] = useState('')
     const navigate = useNavigate()
     function submitHandler(e) {
@@ -69,4 +69,5 @@ export default function LoginPage() {
             </div>
         </>
     )
+
 }
