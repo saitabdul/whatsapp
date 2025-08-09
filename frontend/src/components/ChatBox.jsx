@@ -16,14 +16,6 @@ export default function ChatBox(){
         scrollbar.current?.scrollIntoView({behavior:'smooth'})
         
     }
-    useEffect(()=>{
-
-        scrollbar.current?.scrollIntoView({behavior:'smooth'})
-    },[messages])
-    console.log(sendMsg)
-    if(messages){
-        console.log("mm",messages)
-    }
     
     return(
         <>
@@ -57,4 +49,5 @@ export default function ChatBox(){
         </div>
         </>
     )
+
 }
