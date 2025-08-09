@@ -19,7 +19,7 @@ exports.register=async(req,res,next)=>{
            // return next(new ErrorHandler("Email is already exists",401))
            return res.status(401).json({
             success:'false',
-            message:'Password Wrong'
+            message:'Email is already exists'
         })
             
         }
@@ -202,5 +202,6 @@ exports.getAllUser=async(req,res)=>{
             message:err.message
         })
     }
+
 
 }
