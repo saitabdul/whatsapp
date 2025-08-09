@@ -18,7 +18,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: '',
+        origin: false
     },
 });
 
@@ -45,10 +45,7 @@ io.on('connection', (socket) => {
 
 // Middlewares
 app.use(express.json({ limit: '20mb' }));
-app.use(cors({
-    origin: '',
-    credentials: true,
-}));
+
 app.use(cookieParser());
 
 // Routes
@@ -73,5 +70,3 @@ const port = process.env.PORT || 7000;
 server.listen(port, () => {
     console.log("Server running on port " + port);
 });
-
-
